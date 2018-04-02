@@ -39,6 +39,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { CookieModule } from 'ngx-cookie';
 import { OnlineTrackerService } from './online-tracker/online-tracker.service';
+import { OfflineStorageComponent } from './offline-storage/offline-storage.component';
+import { OfflineStorageService } from './offline-storage/offline-storage.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -64,7 +66,8 @@ export function httpClient(xhrBackend: XHRBackend, requestOptions: RequestOption
     AppComponent,
     TitleCasePipe,
     NoContentComponent,
-    FeedBackComponent
+    FeedBackComponent,
+    OfflineStorageComponent
   ],
   imports: [ // import Angular's modules
     BrowserAnimationsModule,
@@ -104,7 +107,7 @@ export function httpClient(xhrBackend: XHRBackend, requestOptions: RequestOption
     FormsModule,
     HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, enableTracing: false }),
-    Angulartics2Module.forRoot([Angulartics2Piwik]),
+    Angulartics2Module.forRoot([Angulartics2Piwik])
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     APP_PROVIDERS,
@@ -115,6 +118,7 @@ export function httpClient(xhrBackend: XHRBackend, requestOptions: RequestOption
     LoginGuard,
     LocalStorageService,
     OnlineTrackerService,
+    OfflineStorageService,
     {
       provide: Http,
       useFactory: httpClient,
