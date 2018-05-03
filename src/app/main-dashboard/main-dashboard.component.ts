@@ -119,6 +119,8 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
   public adjustDashBoard(currentUrl: string) {
     this.currentDashboard = '';
 
+     console.log('Current Url', currentUrl);
+
     if (currentUrl.includes('patient-search')) {
       this.currentDashboard = 'patient-search';
       return;
@@ -141,6 +143,10 @@ export class MainDashboardComponent implements OnInit, OnDestroy {
     }
     if (currentUrl.includes('data-analytics')) {
       this.currentDashboard = 'data-analytics';
+      return;
+    }
+    if (currentUrl.includes('offline-dashboard')) {
+      this.currentDashboard = 'offline-dashboard';
       return;
     }
   }

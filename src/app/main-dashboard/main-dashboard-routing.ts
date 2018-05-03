@@ -14,6 +14,7 @@ import {
 import { PatientDashboardModule } from '../patient-dashboard/patient-dashboard.module';
 import { DataAnalyticsModule } from '../data-analytics-dashboard/data-analytics.module';
 import { PatientListCohortModule } from '../patient-list-cohort/patient-list-cohort.module';
+import { OfflineDashboardModule } from './../offline-dashboard/offline-dashboard.module';
 // export function clinicDashboardModule() {
 //   return ClinicDashboardModule;
 // }
@@ -25,6 +26,9 @@ export function dataAnalyticsModule() {
 }
 export function patientListCohortModule() {
   return PatientListCohortModule;
+}
+export function offlineDashboardModule() {
+  return OfflineDashboardModule;
 }
 export const dashboardRoutes: Routes = [
   {
@@ -38,10 +42,16 @@ export const dashboardRoutes: Routes = [
         loadChildren: '../clinic-dashboard#ClinicDashboardModule'
       },
       {
-        path: 'patient-dashboard', loadChildren: '../patient-dashboard#PatientDashboardModule'
+        path: 'patient-dashboard', 
+        loadChildren: '../patient-dashboard#PatientDashboardModule'
       },
       {
-        path: 'data-analytics', loadChildren: dataAnalyticsModule
+        path: 'data-analytics', 
+        loadChildren: dataAnalyticsModule
+      },
+      {
+        path:'offline-dashboard', 
+        loadChildren: offlineDashboardModule
       },
       {
         path: 'user-default-properties',
